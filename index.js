@@ -18,8 +18,8 @@ function newImage(url, left, bottom) {
 let width = window.innerWidth;
 let height = window.innerHeight;
 let skyStartheight = height / 2;
-
-function createBgImage(url, width, height, startHeight) {
+// Create Background
+function createBackground(url, width, height, startHeight) {
     for (let i = 0; i <= width; i += 100) {
         for (let j = startHeight; j <= height; j += 100) {
             newImage(url, i, j);
@@ -27,23 +27,16 @@ function createBgImage(url, width, height, startHeight) {
     }
 }
 
-// adding sky
-createBgImage('assets/sky.png', width, height, skyStartheight);
+// Adding sky
+createBackground('assets/sky.png', width, height, skyStartheight);
 // Adding grass
-createBgImage('assets/grass.png', width, skyStartheight, 0);
+createBackground('assets/grass.png', width, skyStartheight, 0);
 
 // for (let i = 0; i <= width; i += 100) {
 //     for (let j = 0; j <= skyStartheight; j += 100) {
 //         newImage('assets/grass.png', i, j);
 //     }
 // }
-
-newImage('assets/green-character.gif', 100, 100);
-newImage('assets/pine-tree.png', 450, 200);
-newImage('assets/tree.png', 200, 300);
-newImage('assets/pillar.png', 350, 100);
-newImage('assets/crate.png', 150, 200);
-newImage('assets/well.png', 500, 425);
 // /grass image
 // newImage('assets/grass.png', '0px', '0px');
 // newImage('assets/grass.png', '0px', '100px');
@@ -51,15 +44,20 @@ newImage('assets/well.png', 500, 425);
 // newImage('assets/grass.png', '0px', '300px');
 // newImage('assets/grass.png', '0px', '400px');
 
+newImage('assets/green-character.gif', 100, 100);
+newImage('assets/pine-tree.png', 450, 200);
+newImage('assets/tree.png', 200, 300);
+newImage('assets/pillar.png', 350, 100);
+newImage('assets/crate.png', 150, 200);
+newImage('assets/well.png', 500, 425);
 
-console.log('innerWidth', window.innerWidth, 'inner height', window.innerHeight);
-// adding image to the webpage that can be removed
+// Adding image to the webpage that can be removed
 function newItem(url, left, bottom) {
     let imageItem = document.createElement('img')
     imageItem.src = url
     imageItem.style.position = 'fixed'
-    imageItem.style.left = left
-    imageItem.style.bottom = bottom
+    imageItem.style.left = left + 'px'
+    imageItem.style.bottom = bottom + 'px'
     document.body.append(imageItem)
     // Image removed when clicked on it
     // imageItem.addEventListener('click', function(){
@@ -70,9 +68,9 @@ function newItem(url, left, bottom) {
         imageItem.remove()
     })
 }
-newItem('assets/sword.png', '500px', '405px');
-newItem('assets/shield.png', '165px', '185px');
-newItem('assets/staff.png', '600px', '100px');
+newItem('assets/sword.png', 500, 405);
+newItem('assets/shield.png', 165, 185);
+newItem('assets/staff.png', 600, 100);
 
 
 
